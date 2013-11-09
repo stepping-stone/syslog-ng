@@ -7,9 +7,10 @@ For example, syslog-ng will create log messages as seen below:
 ```bash
 ls /var/log/syslog
 ```
+
 ```
 acpid.log       dhcpcd.log  lightdm.log         polkitd.log  sshd.log
-bluetoothd.log  dhcpd.log   NetworkManager.log   portage.log  syslog-ng.log
+bluetoothd.log  dhcpd.log   NetworkManager.log  portage.log  syslog-ng.log
 dbus.log        kernel.log  ntpd.log            postfix.log
 ```
 
@@ -29,15 +30,15 @@ If you're looking for a more enterprisish way to install the configuration, chec
 Contributions are very welcome, simply fork our repository and send us a pull-request. If you found a bug, open an issue.
 
 ## Missing daemon or service configuration
-There are so many daemons out there, that we can't add all by ourself :) If you're using a software for which there is no configuration yet, proceed with the following basic steps to create and submit a new configuration:
+There are so many daemons out there, that we can't add all by ourself :) If you're using a software for which no configuration exists (your log messages are appended to <code>/var/log/messages</code>), proceed with the following basic steps to create and submit a new configuration:
 
 1. Fork our repository on GitHub
-
 2. Create the required configuration files:
 
+
 ```bash
-serviceName=               # For example OpenSSH
-serviceProgramName=        # For example sshd
+serviceName=<NAME-OF-THE-SOFTWARE>           # For example OpenSSH, or Bluetooth daemon.
+serviceProgramName=<NAME-OF-THE-SYSLOG-TAG>  # For example sshd, or bluetoothd.
 
 # Create the syslog-ng filter 
 cat << EOF > "syslog-ng.conf.d/filter.d/${serviceProgramName}.conf"
@@ -64,8 +65,8 @@ EOF
 ```
 
 3. Test your new config snippets, by generating a log message from your new software and see if <code>/var/log/syslog/\<serviceProgramName\>.log</code> gets created.
-
 4. Commit and push your additions
+
 
 ```bash
 git add syslog-ng.conf.d/filter.d/${serviceProgramName}.conf \
