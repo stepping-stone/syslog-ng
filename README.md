@@ -24,7 +24,7 @@ ln -s ~/repos/syslog-ng /etc/syslog-ng
 /etc/init.d/syslog-ng restart
 ```
 
-If you're looking for a more enterprisish way to install the configuration, check out the [puppet-syslogng](https://github.com/purplehazech/puppet-syslogng) module, which is based on this configuration.
+If you're looking for a more enterprisish way to install the configuration, check out the [puppet-syslogng](https://github.com/purplehazech/puppet-syslogng) module, which is based on this configuration. Alternatively, you can also find an [ebuild](https://github.com/stepping-stone/portage-overlay/tree/master/sys-apps/sst-syslog-ng-configuration) for installing the configuration.
 
 # Contribution
 Contributions are very welcome, simply fork our repository and send us a pull-request. If you found a bug, open an issue.
