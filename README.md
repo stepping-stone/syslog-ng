@@ -3,7 +3,7 @@ Modular [syslog-ng](http://www.balabit.com/network-security/syslog-ng) configura
 
 The log files are stored below <code>/var/log/syslog/\<daemon\>.log</code>
 Log messages which aren't associated with a specific service or daemon will be logged to the catch-all <code>/var/log/messages</code> log file.
-For example, syslog-ng will create log messages as seen below:
+For example, syslog-ng will create log files as seen below:
 ```bash
 ls /var/log/syslog
 ```
